@@ -42,6 +42,6 @@ class CheckoutController extends Controller
     	->select('donhang.*','account.*')->where('donhang.id',$order_id)->get();
     	$manager_order_by_id=view('admin.view_order')->with('order_by_id',$order_by_id)->with('order_acc',$order_acc);
     	
-    	return view ('admin_layout')->with('admin.view_order',$manager_order_by_id);
+    	return view('admin_layout')->with('admin.view_order',$manager_order_by_id);
     }
 }

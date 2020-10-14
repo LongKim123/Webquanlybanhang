@@ -4,7 +4,8 @@
    <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt Kê Danh Mục Sản Phẩm
+      Kết Quả Tìm Kiếm
+
     </div>
     <?php 
   $message=Session::get('message');
@@ -26,18 +27,7 @@
       </div>
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-        
-          <form action="{{URL::to('/search-product')}}"  method="POST">
-            {{csrf_field()}}
-             <input type="text" name="key" class="input-sm form-control" placeholder="tìm kiếm sản phẩm">
-            
-              <input name="search_item"  class="btn btn-success btn-primary" value="Tìm kiếm" type="submit">
-            
-            
-          </form>
-         
-        
+      
       </div>
     </div>
     <div class="table-responsive">
@@ -53,14 +43,11 @@
             <th>Giá sản phẩm</th>
             <th>hình ảnh sản phẩm</th>
             <th>Loại sản phẩm</th>
-
-
-           
             <th style="width:30px;">Hiển thị</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($all_product as $key =>$pro)
+          @foreach($product as $key =>$pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{$pro->tensanpham}}</td>
@@ -80,7 +67,6 @@
         </tbody>
       </table>
     </div>
-
     <footer class="panel-footer">
       <div class="row">
         

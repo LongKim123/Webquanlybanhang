@@ -57,3 +57,8 @@ Route::get('/all-account','AccountController@all_account');
 //Manage_order
 Route::get('/manage-order','CheckoutController@manage_order');
 Route::get('/view-order/{order_id}','CheckoutController@view_order');
+
+
+
+//Search product
+Route::post('/search-product','ProductController@search');

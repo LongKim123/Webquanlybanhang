@@ -88,4 +88,16 @@ class ProductController extends Controller
 
 
     }
+    public function search( Request $request){
+        
+        $key1=$request->key;
+        $product=DB::table('sanpham')
+        ->join('loaisanpham','sanpham.idsanpham','=','loaisanpham.id')->where('tensanpham','like','%'.$request->key.'%')->orwhere('motasanpham','like','%'.$request->key.'%')->orwhere('tenloaisanpham','like','%'.$request->key.'%')
+        ->orwhere('giasanpham','like','%'.$request->key.'%')
+        ->orderby('sanpham.id_sp','desc')->get();
+        
+
+        return view('admin.search')->with('product',$product)->with('key1',$request->key);
+        //return view('admin_layout')->with('admin.search',$manager_search);
+    }
 }

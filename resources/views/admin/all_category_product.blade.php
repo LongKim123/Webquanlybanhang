@@ -46,6 +46,7 @@
             </th>
             <th>Tên Danh Mục</th>
             <th>Địa chỉ hình ảnh</th>
+            <th>Hình ảnh</th>
            
             <th style="width:30px;"></th>
           </tr>
@@ -55,7 +56,8 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{$cate_pro->tenloaisanpham}}</td>
-            <td>{{$cate_pro->hinhanhloaisanpham}}</td>            
+            <td>{{$cate_pro->hinhanhloaisanpham}}</td>
+             <td><img src="{{$cate_pro->hinhanhloaisanpham}}"height="100" width="100" alt=""></td>            
             <td>
               <a href="{{URL::to('/edit-category-product/'.$cate_pro->id)}}" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
               <a  onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này không ?')" href="{{URL::to('/delete-category-product/'.$cate_pro->id)}}" class="active" ui-toggle-class="">
