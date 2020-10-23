@@ -7,14 +7,16 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="{{('public/frontend/images/product1.jpg')}}" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            @foreach($product as $key =>$pro)
+                                            <img src="{{$pro->hinhanh}}" alt="" />
+                                            <h2>{{$pro->giasanpham}}</h2>
+                                            <p>{{$pro->tensanpham}}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            @endforeach
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
-                                                <h2>$56</h2>
+                                                <h2>$58</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>

@@ -6,6 +6,7 @@
     <div class="panel-heading">
      Danh sách đơn đặt hàng
     </div>
+
     <div>
       <table class="table" ui-jq="footable" ui-options='{
         "paging": {
@@ -36,7 +37,26 @@
             
             <td>{{$order_all->username}}</td>
             <td>{{$order_all->total_price}}</td>
-            <td>{{$order_all->status}}</td>
+            <td><span class="text-ellipsis">
+              <?php
+              if($order_all->status=='Đang xử lý')
+                {?>
+                  
+                  <a href="{{URL::to('/chuaxuly/'.$order_all->id)}}" ><span class="fa-thumb-styling fa fa-thumbs-down"  style="color:red ;font-size: 28px"></span></a>
+              <?php 
+              }
+              else{
+
+
+                ?>
+                <a href="{{URL::to('/dangxuly/'.$order_all->id)}}" ><span class="fa-thumb-styling fa fa-thumbs-up" style="color:green; font-size: 28px"></span></a>
+                
+
+              <?php
+              } 
+                ?>
+
+               </span></td>
             <td>{{$order_all->NgayDH}}</td>
             <td>
               <a href="{{URL::to('/view-order/'.$order_all->id)}}" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>

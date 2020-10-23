@@ -11,10 +11,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Frontend
+
 
 Route::get('/', 'HomeController@index');
 
 Route::get('/trang-chu','HomeController@index');
+Route::get('/trang-chu','HomeController@product');
 
 
 
@@ -22,6 +25,7 @@ Route::get('/trang-chu','HomeController@index');
 Route::get('/admin','AdminController@index');
 Route::get('dashboard','AdminController@show_dashboard');
 Route::get('/logout','AdminController@logout');
+Route::get('/');
 
 Route::post('admin-dashboard','AdminController@dashboard');
 
@@ -62,3 +66,9 @@ Route::get('/view-order/{order_id}','CheckoutController@view_order');
 
 //Search product
 Route::post('/search-product','ProductController@search');
+
+
+Route::get('/dangxuly/{order_id}','CheckoutController@dangxuly');
+Route::get('/chuaxuly/{order_id}','CheckoutController@chuaxuly');
+
+

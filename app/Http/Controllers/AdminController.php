@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function AuthLogin(){
         $admin_id=Session::get('admin_id');
         if($admin_id){
-            Redirect::to('dashboard');
+            return view();
         }
         else{
             Redirect::to('admin')->send();
@@ -29,7 +29,12 @@ class AdminController extends Controller
     }
     public function show_dashboard(){
         $this->AuthLogin();
-    	return view('admin.dashboard');
+        $dashboard=DB::table('account')->count();
+        $order=DB::table('donhang')->where('status','Đang xử lý')->count();
+        $order_chua=DB::table('donhang')->where('status','Hoàn thành')->count();
+        $product =DB::table('sanpham')->count();
+    	$manager_account=view('admin.dashboard')->with('dashboard',$dashboard)->with('order',$order)->with('order_chua',$order_chua)->with('product',$product);
+        return view ('admin_layout  ')->with('dashboard',$manager_account);
     }
 
     public function dashboard(Request $request){
@@ -47,6 +52,7 @@ class AdminController extends Controller
     	 	return Redirect::to('/admin');
 
     	 }
+
     	
     }
 
@@ -57,4 +63,5 @@ class AdminController extends Controller
     	return Redirect::to('/admin');
     	
     }
+
 }

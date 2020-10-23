@@ -27,6 +27,14 @@ body a{
 h1,h2,h3,h4,h5,h6{
 	margin:0;			   
 }
+span.fa-thumb-styling.fa.fa-thumbs-up{
+    font-size: 30px;
+    color: red;
+}
+span.fa-thumb-styling.fa.fa-thumbs-down{
+    font-size: 30px;
+    color: green;
+}
 p{
 	margin:0;
 }
@@ -76,6 +84,7 @@ body a:hover{
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
 }
+
 .right-side-accordion .dcjq-icon {
     height:17px;
     width:17px;

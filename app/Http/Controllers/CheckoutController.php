@@ -44,4 +44,18 @@ class CheckoutController extends Controller
     	
     	return view('admin_layout')->with('admin.view_order',$manager_order_by_id);
     }
+    public function dangxuly($order_id){
+         DB::table('donhang')->where('id',$order_id)->update(['status'=>"Đang xử lý"]);
+        Session::put('message','Xử lý đơn hàng thành công');
+        return Redirect::to('manage-order');
+        
+
+    }
+    public function chuaxuly($order_id){
+       
+        DB::table('donhang')->where('id',$order_id)->update(['status'=>"Hoàn Thành"]);
+        Session::put('message','Xử lý đơn hàng thành công');
+        return Redirect::to('manage-order');
+
+    }
 }

@@ -97,7 +97,7 @@ class ProductController extends Controller
         ->orderby('sanpham.id_sp','desc')->get();
         
 
-        return view('admin.search')->with('product',$product)->with('key1',$request->key);
+        return view('admin.search')->with('product',$product);
         //return view('admin_layout')->with('admin.search',$manager_search);
     }
 }

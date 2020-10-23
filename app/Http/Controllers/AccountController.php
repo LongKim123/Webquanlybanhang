@@ -16,7 +16,7 @@ class AccountController extends Controller
 	public function AuthLogin(){
         $admin_id=Session::get('admin_id');
         if($admin_id){
-            Redirect::to('dashboard');
+            Redirect::to('dashboard');  
         }
         else{
             Redirect::to('admin')->send();
