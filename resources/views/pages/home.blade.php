@@ -1,27 +1,31 @@
  @extends('layout')
  @section('content')
+ 
+  
+                
+                
+                <div class="col-sm-9 padding-right">
+                   <div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">Món Ăn Mới Nhất
+                        </h2>
+                        @foreach($product as $key =>$pro)
 
- <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
+                                
                                 <div class="single-products">
+                                     
                                         <div class="productinfo text-center">
-                                            @foreach($product as $key =>$pro)
-                                            <img src="{{$pro->hinhanh}}" alt="" />
+                                           
+                                            <img src="{{$pro->hinhanh}}" style=" height: 150px" alt="" />
                                             <h2>{{$pro->giasanpham}}</h2>
                                             <p>{{$pro->tensanpham}}</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            @endforeach
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>   
                                         </div>
-                                        <div class="product-overlay">
-                                            <div class="overlay-content">
-                                                <h2>$58</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-                                        </div>
+                                       
+                                        
                                 </div>
+                                 
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
                                         <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
@@ -29,12 +33,12 @@
                                     </ul>
                                 </div>
                             </div>
+
                         </div>
+                        @endforeach
                        
                        
                        
-                       
-                     
                         
                     </div><!--features_items-->
 
@@ -163,5 +167,11 @@
                               </a>          
                         </div>
                     </div><!--/recommended_items-->
-
+                    
+                    
+                    
+                    
+                    
+                </div>
+          
 @endsection

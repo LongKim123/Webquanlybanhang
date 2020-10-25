@@ -17,9 +17,9 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/trang-chu','HomeController@index');
-Route::get('/trang-chu','HomeController@product');
 
 
+Route::get('/danh-muc-san-pham{category_product_id}','CategoryProduct@product_category_home');
 
 //Backend
 Route::get('/admin','AdminController@index');

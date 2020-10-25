@@ -12,11 +12,10 @@ use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
     public function index(){
-    	return view('pages.home');
+        $category=DB::table('loaisanpham')->orderby('id','desc')->get();
+        $product=DB::table('sanpham')->orderby('id_sp','desc')->limit(6)->get();
+        return  view('pages.home')->with('product',$product)->with('category',$category);
+        
     }
-    public function product(){
-    	$product=DB::table('sanpham')->get();
-    	$manager_product= view('pages.home')->with('product',$product);
-    	return view('layout')->with('pages.home',$manager_product);
-    }
+  
 }

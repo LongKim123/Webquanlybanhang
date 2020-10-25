@@ -77,4 +77,12 @@ class CategoryProduct extends Controller
 
 
     }
+    public function product_category_home($category_product_id){
+         $category=DB::table('loaisanpham')->orderby('id','desc')->get(); 
+         $category_name=DB::table('loaisanpham')->where('id',$category_product_id)->orderby('id','desc')->limit(1)->get(); 
+        $product=DB::table('sanpham')->join('loaisanpham','sanpham.idsanpham','=','loaisanpham.id')->where('sanpham.idsanpham',$category_product_id)->get();
+
+         return view('pages.category.show_category')->with('product',$product)->with('category',$category)->with('category_name',$category_name);
+         //  view('pages.home')->with('product',$product)->with('category',$category);
+    }
 }
