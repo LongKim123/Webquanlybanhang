@@ -21,6 +21,10 @@ Route::get('/trang-chu','HomeController@index');
 
 Route::get('/danh-muc-san-pham{category_product_id}','CategoryProduct@product_category_home');
 
+//get detail product
+
+Route::get('/chi-tiet-san-pham{id_product}','ProductController@detail_product');
+
 //Backend
 Route::get('/admin','AdminController@index');
 Route::get('dashboard','AdminController@show_dashboard');

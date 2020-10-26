@@ -17,10 +17,11 @@
 
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
-                                
+                                <a href="{{URL::to('/chi-tiet-san-pham'.$pro->id_sp)}}">
+
                                 <div class="single-products">
                                      
-                                        <div class="productinfo text-center">
+                                        <div  class="productinfo text-center">
                                            
                                             <img src="{{$pro->hinhanh}}" style=" height: 150px" alt="" />
                                             <h2>{{$pro->giasanpham}}</h2>
@@ -30,6 +31,7 @@
                                        
                                         
                                 </div>
+                            </a>
                                  
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">

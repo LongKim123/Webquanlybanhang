@@ -100,4 +100,9 @@ class ProductController extends Controller
         return view('admin.search')->with('product',$product);
         //return view('admin_layout')->with('admin.search',$manager_search);
     }
+    public function detail_product($id_product){
+        $product_detail=DB::table('sanpham')->join('loaisanpham','sanpham.idsanpham','=','loaisanpham.id')->where('sanpham.id_sp',$id_product)->get();
+        $category=DB::table('loaisanpham')->orderby('id','desc')->get(); 
+        return view('pages.detail_product')->with('category',$category)->with('product_detail',$product_detail);
+    }
 }
