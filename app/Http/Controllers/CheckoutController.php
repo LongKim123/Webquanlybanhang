@@ -28,7 +28,7 @@ class CheckoutController extends Controller
     	$all_order=DB::table('donhang')
     	->join('account','donhang.idaccount','=','account.id_ac')
     	->select('donhang.*','account.username','account.address')
-    	->orderby('donhang.id')->get();
+    	->orderby('donhang.id')->paginate(10);
     	$manager_order= view('admin.manage_order')->with('all_order',$all_order);
     	return view('admin_layout')->with('admin.all_manage_order',$manager_order);
     }

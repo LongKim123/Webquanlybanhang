@@ -25,6 +25,10 @@ Route::get('/danh-muc-san-pham{category_product_id}','CategoryProduct@product_ca
 
 Route::get('/chi-tiet-san-pham{id_product}','ProductController@detail_product');
 
+//login 
+
+Route::get('/login_user','');
+
 //Backend
 Route::get('/admin','AdminController@index');
 Route::get('dashboard','AdminController@show_dashboard');

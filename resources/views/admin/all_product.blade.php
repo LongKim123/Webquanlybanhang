@@ -4,7 +4,7 @@
    <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt Kê Danh Mục Sản Phẩm
+      Liệt Kê Danh Sách Sản Phẩm
     </div>
  
     <div class="row w3-res-tb">
@@ -82,12 +82,7 @@
         </div>
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+           {!! $all_product->links()!!}
           </ul>
         </div>
       </div>
