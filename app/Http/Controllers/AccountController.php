@@ -28,7 +28,5 @@ class AccountController extends Controller
     	$manager_account=view('admin.all_account')->with('all_account',$all_account);
     	return view ('admin_layout	')->with('all_account',$manager_account);
 
-
-
     }
 }

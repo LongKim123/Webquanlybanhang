@@ -6,7 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Food Shop</title>
+
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/frontend/css/sweet_alert.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/price-range.css')}}" rel="stylesheet">
@@ -90,7 +92,7 @@
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{URL::to('/gio-hang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
@@ -429,14 +431,57 @@
         </div>
         
     </footer><!--/Footer-->
+     
     
-
+    
+   
   
-    <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
+    <script src="{{asset('public/frontend/js/jquery.js')}}">
+        
+    </script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+    <script src="{{asset('public/frontend/js/sweetalert.min.js')}}"></script>
+     <script type="text/javascript" >
+           $(document).ready(function(){
+       
+            $('.add-to-cart').click(function(){
+                var id=$(this).data('id');
+                var cart_product_id=$('.cart_product_id_'+id).val();
+                var cart_product_name=$('.cart_product_name_'+id).val();
+                var cart_product_price=$('.cart_product_price_'+id).val();
+                var cart_product_image=$('.cart_product_image_'+id).val();
+                var cart_product_qty=$('.cart_product_qty_'+id).val();
+                var _token=$('input[name="_token"]').val();
+                
+                $.ajax({
+                    url:'{{URL('/add-to-cart')}}',
+                    method:'POST',
+                    data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_qty:cart_product_qty,_token:_token},
+                    success:function(){
+                        swal({
+                            title:"Bạn đã thêm sản phẩm thành công",
+                            text:"bạn có thể tiếp tục mua hàng hoặc tới giỏ hàng thanh toán",
+                            showCancelButton:true,
+                            cancelButtonText:"Xem tiếp",
+                            confirmButtonClass:"btn-success",
+                            confirmButtonText:"Đi đến giỏ hàng",
+                            closeOnConfirm:false
+                        },
+                        function(){
+                            window.location.href="{{URL::to('/gio-hang')}}";
+                        });
+
+                        
+                    }
+
+                });
+
+            });
+    });
+    </script>
 </body>
 </html>

@@ -83,7 +83,7 @@ class ProductController extends Controller
     public function delete_product($product_id){
         $this->AuthLogin();
     	DB::table('sanpham')->where('id_sp',$product_id)->delete();
-    	Session::put('message','Xóa sản phẩm thành công');
+    	Session::put('message_xoa','Xóa sản phẩm thành công');
     	return Redirect::to('all-product');
 
 

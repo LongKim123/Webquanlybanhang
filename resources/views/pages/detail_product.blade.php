@@ -17,14 +17,34 @@
 								<h2>{{$details->tensanpham}}</h2>
 								
 								<img src="images/product-details/rating.png" alt="" />
+
 								<span>
-									<span>VND {{$details->giasanpham}}</span>
+
+									<span>{{number_format($details->giasanpham).'VND'}}</span>
+									<form >
+										@csrf
+										 <input type="hidden" name="" value="{{$details->id_sp}}" class="cart_product_id_{{$details->id_sp}}">
+
+                                                 <input type="hidden" name="" value="{{$details->tensanpham}}" class="cart_product_name_{{$details->id_sp}}">
+
+                                                  <input type="hidden" name="" value="{{$details->hinhanh}}" class="cart_product_image_{{$details->id_sp}}">
+
+                                                   <input type="hidden" name="" value="{{$details->giasanpham}}" class="cart_product_price_{{$details->id_sp}}">
+
+                                                   
+                                            
+                                            
+
+									
 									<label>Quantity:</label>
-									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
+									 <input  name="" value="1" class="cart_product_qty_{{$details->id_sp}}">
+									<input name="product_idhiden" type="hidden" value="{{$details->id_sp}}" />
+									<button type="button" data-id="{{$details->id_sp}}" class="btn btn-default add-to-cart">
 										<i class="fa fa-shopping-cart"></i>
-										Add to cart
+										Thêm vào giỏ
 									</button>
+									   
+								</form>
 								</span>
 								<p><b>Loại sản phẩm:</b> {{$details->tenloaisanpham}}</p>
 								

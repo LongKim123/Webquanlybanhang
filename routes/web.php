@@ -24,7 +24,13 @@ Route::get('/danh-muc-san-pham{category_product_id}','CategoryProduct@product_ca
 //get detail product
 
 Route::get('/chi-tiet-san-pham{id_product}','ProductController@detail_product');
+// gio hang
+Route::post('/save-cart','CartProduct@savecart');
+Route::post('/add-to-cart','CartProduct@add_to_cart');
+Route::get('/gio-hang','CartProduct@gio_hang');
+Route::get('/delete-cart/{sesstion_id}','CartProduct@delete_cart');
 
+Route::post('update-cart','CartProduct@update_cart');
 //login 
 
 Route::get('/login_user','');
